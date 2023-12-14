@@ -110,11 +110,7 @@ class Kohana_Request_Client_Internal extends Request_Client {
 			// Get the response via the Exception
 			$response = $e->get_response();
 		}
-		catch (Exception $e)
-		{
-			// Kaboodle customisation
-			throw $e;
-		}
+		// Kaboodle customisation (remove final catch)
 
 		// Restore the previous request
 		Request::$current = $previous;
