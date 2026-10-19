@@ -23,8 +23,8 @@ class Kohana_DateTest extends Unittest_TestCase
 	 * Ensures we have a consistant timezone for testing.
 	 */
 	// @codingStandardsIgnoreStart
-	public function setUp()
-	// @codingStandardsIgnoreEnd
+	public function setUp(): void
+		// @codingStandardsIgnoreEnd
 	{
 		parent::setUp();
 
@@ -39,8 +39,8 @@ class Kohana_DateTest extends Unittest_TestCase
 	 * Restores original timezone after testing.
 	 */
 	// @codingStandardsIgnoreStart
-	public function tearDown()
-	// @codingStandardsIgnoreEnd
+	public function tearDown(): void
+		// @codingStandardsIgnoreEnd
 	{
 		date_default_timezone_set($this->_original_timezone);
 		setlocale(LC_ALL, $this->default_locale);
@@ -56,7 +56,7 @@ class Kohana_DateTest extends Unittest_TestCase
 	public function provider_offset()
 	{
 		return [
-			[30600, 'Asia/Calcutta', 'America/Argentina/Buenos_Aires'],
+			[30600, 'Asia/Kolkata', 'America/Argentina/Buenos_Aires'],
 		];
 	}
 
@@ -258,9 +258,9 @@ class Kohana_DateTest extends Unittest_TestCase
 			// Binary date!
 			['01/01/2010 01:00', '1AM 1st January 2010', 'd/m/Y H:i'],
 			// Timezones (see #3902)
-			['2011-04-01 01:23:45 Antarctica/South_Pole', '2011-04-01 01:23:45', 'Y-m-d H:i:s e', 'Antarctica/South_Pole'],
-			['2011-04-01 01:23:45 Antarctica/South_Pole', '2011-03-31 14:23:45 Europe/Paris', 'Y-m-d H:i:s e', 'Antarctica/South_Pole'],
-			['2011-04-01 01:23:45 Antarctica/South_Pole', '@1301574225', 'Y-m-d H:i:s e', 'Antarctica/South_Pole'],
+			['2011-04-01 01:23:45 Pacific/Auckland', '2011-04-01 01:23:45', 'Y-m-d H:i:s e', 'Pacific/Auckland'],
+			['2011-04-01 01:23:45 Pacific/Auckland', '2011-03-31 14:23:45 Europe/Paris', 'Y-m-d H:i:s e', 'Pacific/Auckland'],
+			['2011-04-01 01:23:45 Pacific/Auckland', '@1301574225', 'Y-m-d H:i:s e', 'Pacific/Auckland'],
 		];
 	}
 
