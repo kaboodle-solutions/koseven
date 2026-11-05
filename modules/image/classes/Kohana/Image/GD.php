@@ -130,7 +130,7 @@ class Kohana_Image_GD extends Image {
 		if ( $this->_has_image() )
 		{
 			// Free all resources
-			imagedestroy($this->_image);
+			unset($this->_image);
 		}
 	}
 
@@ -204,7 +204,7 @@ class Kohana_Image_GD extends Image {
 			if (imagecopyresized($image, $this->_image, 0, 0, 0, 0, $pre_width, $pre_height, $this->width, $this->height))
 			{
 				// Swap the new image for the old one
-				imagedestroy($this->_image);
+				unset($this->_image);
 				$this->_image = $image;
 			}
 		}
@@ -216,7 +216,7 @@ class Kohana_Image_GD extends Image {
 		if (imagecopyresampled($image, $this->_image, 0, 0, 0, 0, $width, $height, $pre_width, $pre_height))
 		{
 			// Swap the new image for the old one
-			imagedestroy($this->_image);
+			unset($this->_image);
 			$this->_image = $image;
 
 			// Reset the width and height
@@ -246,7 +246,7 @@ class Kohana_Image_GD extends Image {
 		if (imagecopyresampled($image, $this->_image, 0, 0, $offset_x, $offset_y, $width, $height, $width, $height))
 		{
 			// Swap the new image for the old one
-			imagedestroy($this->_image);
+			unset($this->_image);
 			$this->_image = $image;
 
 			// Reset the width and height
@@ -288,7 +288,7 @@ class Kohana_Image_GD extends Image {
 		if (imagecopymerge($this->_image, $image, 0, 0, 0, 0, $width, $height, 100))
 		{
 			// Swap the new image for the old one
-			imagedestroy($this->_image);
+			unset($this->_image);
 			$this->_image = $image;
 
 			// Reset the width and height
@@ -329,7 +329,7 @@ class Kohana_Image_GD extends Image {
 		}
 
 		// Swap the new image for the old one
-		imagedestroy($this->_image);
+		unset($this->_image);
 		$this->_image = $flipped;
 
 		// Reset the width and height
@@ -445,7 +445,7 @@ class Kohana_Image_GD extends Image {
 		}
 
 		// Swap the new image for the old one
-		imagedestroy($this->_image);
+		unset($this->_image);
 		$this->_image = $reflection;
 
 		// Reset the width and height
@@ -503,7 +503,7 @@ class Kohana_Image_GD extends Image {
 		if (imagecopy($this->_image, $overlay, $offset_x, $offset_y, 0, 0, $width, $height))
 		{
 			// Destroy the overlay image
-			imagedestroy($overlay);
+			unset($overlay);
 		}
 	}
 
@@ -540,7 +540,7 @@ class Kohana_Image_GD extends Image {
 		if (imagecopy($background, $this->_image, 0, 0, 0, 0, $this->width, $this->height))
 		{
 			// Swap the new image for the old one
-			imagedestroy($this->_image);
+			unset($this->_image);
 			$this->_image = $background;
 		}
 	}
